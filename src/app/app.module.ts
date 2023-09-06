@@ -5,15 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 //Componentes
 import { LoginScreenComponent } from './screens/login-screen/login-screen.component';
+import { RegistroScreenComponent } from './screens/registro-screen/registro-screen.component';
+import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//Angular Material
+//import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginScreenComponent
+    LoginScreenComponent,
+    RegistroScreenComponent,
+    HomeScreenComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
