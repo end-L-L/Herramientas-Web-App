@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login-screen',
-  templateUrl: './login-screen.component.html',
-  styleUrls: ['./login-screen.component.scss']
+  selector: 'app-nuevo-login-screen',
+  templateUrl: './nuevo-login-screen.component.html',
+  styleUrls: ['./nuevo-login-screen.component.scss']
 })
-export class LoginScreenComponent implements OnInit{
-  
+export class NuevoLoginScreenComponent implements OnInit {
+
   public type: String = "password";
   public username: String = "";
   public password: String = "";
@@ -41,7 +41,7 @@ export class LoginScreenComponent implements OnInit{
   public showPassword(){
     if(this.type == "password"){
       this.type = "text";
-    }else{
+    } else {
       this.type = "password";
     }
   }
