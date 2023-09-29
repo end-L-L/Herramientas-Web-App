@@ -11,6 +11,7 @@ import { HomeScreenComponent } from './screens/home-screen/home-screen.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NuevoLoginScreenComponent } from './screens/nuevo-login-screen/nuevo-login-screen.component';
 import { FormsModule } from '@angular/forms';
+import { RegistroProductoScreenComponent } from './screens/registro-producto-screen/registro-producto-screen.component';
 
 //Angular Material
 import { MatInputModule } from '@angular/material/input';
@@ -20,13 +21,20 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker'; 
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
+
+//Mask
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+//Options mask
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginScreenComponent,
     RegistroScreenComponent,
     HomeScreenComponent,
-    NuevoLoginScreenComponent
+    NuevoLoginScreenComponent,
+    RegistroProductoScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +45,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     FormsModule,
     MatIconModule,
     MatNativeDateModule,
-    MatDatepickerModule
-    
+    MatDatepickerModule,
+    NgxMaskModule.forRoot(options)
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'es-ES'}

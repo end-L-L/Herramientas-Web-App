@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { UsuariosService } from 'src/app/services/users.service';
+declare var $:any;
 
 @Component({
   selector: 'app-registro-screen',
@@ -21,6 +23,7 @@ export class RegistroScreenComponent implements OnInit {
 
   constructor(
     private location: Location,
+    private usuariosService: UsuariosService
   ) { }
 
   ngOnInit(): void {
@@ -55,7 +58,24 @@ export class RegistroScreenComponent implements OnInit {
   }
 
   public registrar(){
+    //Validar
+    this.errors = [];
 
+    this.errors = this.usuariosService.validarUsuario(this.user);
+    if(!$.isEmptyObject(this.errors)){
+      //Pasa la validación y sale de la función
+      return false;
+    }
+    //Valida la contraseña
+    if(this.user.password == this.user.confirmar_password){
+      //Funcion para registrarse
+      alert("Todo chido vamos a registrar");
+    }else{
+      alert("Las contraseñas no coinciden");
+      this.user.password="";
+      this.user.confirmar_password="";
+    }
+    //return true;
   }
 
   public regresar(){
