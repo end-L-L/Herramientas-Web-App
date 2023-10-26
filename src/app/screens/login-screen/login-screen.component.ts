@@ -24,24 +24,7 @@ export class LoginScreenComponent implements OnInit{
   ngOnInit():void{
 
   }
-  /*
-  public login(){
-    if(this.username == ""){
-      this.errors.username = "Campo requerido";
-    } else {
-      this.errors.username ="";
-    }
-    if(this.password == ""){
-      this.errors.password = "Campo requerido";
-    } else {
-      this.errors.password = "";
-    }
-    
-    if(this.username != "" && this.password != "")
-      this.router.navigate(["nuevo-login"]);
-  }
-  */
-
+  
   public login(){
     //Validar
     this.errors = [];
@@ -50,9 +33,17 @@ export class LoginScreenComponent implements OnInit{
     if(!$.isEmptyObject(this.errors)){
       return false;
     }
-    //Si pasa la validación
-    this.router.navigate(["registro-producto"]);
-    //return true;
+     //Si pasa la validación ir a la página de home
+     this.facadeService.login(this.username, this.password).subscribe({
+      next: (response)=>{
+        console.log(response);
+        this.facadeService.saveUserData(response);
+        this.router.navigate(["home"]);
+      }, 
+      error: (error)=>{
+        alert("No se pudo iniciar sesión");
+      }
+    });
   }
 
   public showPassword(){
