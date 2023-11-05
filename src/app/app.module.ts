@@ -30,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 //Mask
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { EliminarUserModalComponent } from './modals/eliminar-user-modal/eliminar-user-modal.component';
+import { RegistroMateriaScreenComponent } from './screens/registro-materia-screen/registro-materia-screen.component';
 //Options mask
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -41,7 +42,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     HomeScreenComponent,
     NuevoLoginScreenComponent,
     RegistroProductoScreenComponent,
-    EliminarUserModalComponent
+    EliminarUserModalComponent,
+    RegistroMateriaScreenComponent
   ],
   imports: [
     BrowserModule,

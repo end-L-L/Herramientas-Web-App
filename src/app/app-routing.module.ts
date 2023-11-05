@@ -5,6 +5,7 @@ import { RegistroScreenComponent } from './screens/registro-screen/registro-scre
 import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
 import { NuevoLoginScreenComponent } from './screens/nuevo-login-screen/nuevo-login-screen.component';
 import { RegistroProductoScreenComponent } from './screens/registro-producto-screen/registro-producto-screen.component';
+import { RegistroMateriaScreenComponent } from './screens/registro-materia-screen/registro-materia-screen.component';
 
 // arreglo de rutas - url
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'nuevo-login', component: NuevoLoginScreenComponent, pathMatch:'full' },
   { path: 'registro-producto', component: RegistroProductoScreenComponent, pathMatch:'full' },
   { path: 'registro/:id', component: RegistroScreenComponent, pathMatch:'full' },
+  { path: 'registro-materia', component: RegistroMateriaScreenComponent, pathMatch:'full' },
 ];
 
 @NgModule({
