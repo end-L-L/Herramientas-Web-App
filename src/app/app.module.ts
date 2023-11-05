@@ -25,9 +25,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 //Mask
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { EliminarUserModalComponent } from './modals/eliminar-user-modal/eliminar-user-modal.component';
 //Options mask
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -38,7 +40,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     RegistroScreenComponent,
     HomeScreenComponent,
     NuevoLoginScreenComponent,
-    RegistroProductoScreenComponent
+    RegistroProductoScreenComponent,
+    EliminarUserModalComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     NgxMaskModule.forRoot(options),
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'es-ES'}

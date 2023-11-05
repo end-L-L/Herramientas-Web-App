@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { EliminarUserModalComponent } from 'src/app/modals/eliminar-user-modal/eliminar-user-modal.component';
 import { FacadeService } from 'src/app/services/facade.service';
 import { UsuariosService } from 'src/app/services/users.service';
 
@@ -27,7 +29,8 @@ export class HomeScreenComponent implements OnInit{
   constructor(
     private facadeService: FacadeService,
     private  usuariosService: UsuariosService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -117,7 +120,27 @@ export class HomeScreenComponent implements OnInit{
     this.router.navigate(["registro/"+idUser]);
   }
 
-  public delete(idUser: number){}
+    //Función para eliminar
+    public delete(idUser: number){
+      console.log("User:", idUser);
+      const dialogRef = this.dialog.open(EliminarUserModalComponent,{
+        data: {id: idUser}, //Se pasan valores a través del componente
+        height: '268px',
+        width: '328px',
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if(result.isDelete){
+          console.log("Usuario eliminado");
+          //Recargar página
+          window.location.reload();
+        }else{
+          alert("Usuario no eliminado ");
+          console.log("No se eliminó el usuario");
+          //alert("No se eliminó el usuario");
+        }
+      });
+    }
 
 } //Fin
 
