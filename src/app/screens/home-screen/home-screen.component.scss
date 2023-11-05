@@ -113,3 +113,31 @@ table {
     color: #231F20!important;
     opacity: 1!important;
 }
+
+//Editar
+.td-editar{
+    color: #0092B8!important;
+    cursor: pointer!important;
+    font-size: 20px!important;
+    text-align: center;
+}
+
+.td-editar:hover{
+    color: #006179!important;
+    font-size: 25px!important;
+    text-align: center;
+}
+
+//Eliminar
+.td-eliminar{
+    color: #E84150!important;
+    cursor: pointer!important;
+    font-size: 20px!important;
+    text-align: center;
+}
+
+.td-eliminar:hover{
+    color: #ce1626!important;
+    font-size: 25px!important;
+    text-align: center;
+}
