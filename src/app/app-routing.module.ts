@@ -8,11 +8,12 @@ import { RegistroProductoScreenComponent } from './screens/registro-producto-scr
 
 // arreglo de rutas - url
 const routes: Routes = [
+  { path: '', component: LoginScreenComponent, pathMatch:'full' },
   { path: 'registro', component: RegistroScreenComponent, pathMatch:'full' },
   { path: 'home', component: HomeScreenComponent, pathMatch:'full' },
-  { path: '', component: LoginScreenComponent, pathMatch:'full' },
   { path: 'nuevo-login', component: NuevoLoginScreenComponent, pathMatch:'full' },
-  { path: 'registro-producto', component: RegistroProductoScreenComponent, pathMatch:'full' }
+  { path: 'registro-producto', component: RegistroProductoScreenComponent, pathMatch:'full' },
+  { path: 'registro/:id', component: RegistroScreenComponent, pathMatch:'full' },
 ];
 
 @NgModule({

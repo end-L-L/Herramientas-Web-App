@@ -167,4 +167,8 @@ export class UsuariosService {
     return this.http.get<any>(`${environment.url_api}/lista-users/`, {headers:headers});
   }
 
+  //Obtener Datos Usuario con ID
+  public getUserByID(idUser: Number){
+    return this.http.get<any>(`${environment.url_api}/users/?id=${idUser}`,httpOptions); 
+  }
 }
