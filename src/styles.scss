@@ -1,1 +1,87 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$herramientas-webapp-primary: mat.define-palette(mat.$indigo-palette);
+$herramientas-webapp-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$herramientas-webapp-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$herramientas-webapp-theme: mat.define-light-theme((
+  color: (
+    primary: $herramientas-webapp-primary,
+    accent: $herramientas-webapp-accent,
+    warn: $herramientas-webapp-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($herramientas-webapp-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+//font-face general
+@font-face {
+  font-family: 'Nexa-Bold';
+  src: url('/assets/fonts/NexaBold.eot');
+  src: url('/assets/fonts/NexaBold.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/NexaBold.woff2') format('woff2'),
+      url('/assets/fonts/NexaBold.woff') format('woff'),
+      url('/assets/fonts/NexaBold.ttf') format('truetype'),
+      url('/assets/fonts/NexaBold.svg#NexaBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nexa-Light';
+  src: url('/assets/fonts/NexaLight.eot');
+  src: url('/assets/fonts/NexaLight.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/NexaLight.woff2') format('woff2'),
+      url('/assets/fonts/NexaLight.woff') format('woff'),
+      url('/assets/fonts/NexaLight.ttf') format('truetype'),
+      url('/assets/fonts/NexaLight.svg#NexaLight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nexa';
+  src: url('/assets/fonts/NexaRegular.eot');
+  src: url('/assets/fonts/NexaRegular.eot?#iefix') format('embedded-opentype'),
+      url('/assets/fonts/NexaRegular.woff2') format('woff2'),
+      url('/assets/fonts/NexaRegular.woff') format('woff'),
+      url('/assets/fonts/NexaRegular.ttf') format('truetype'),
+      url('/assets/fonts/NexaRegular.svg#NexaRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Nexa; }
+
+.invalid-feedback {
+  display: block!important;
+  width: 100%;
+  font-size: 0.75rem;
+  color: #ff5b5b;
+  font-family: Nexa;
+}
