@@ -10,6 +10,9 @@ export class RegistroMateriaScreenComponent implements OnInit {
 
   //Propiedades
   public editar:boolean = false;
+  public materia:any = {};
+  //Errores
+  public errors:any = {};
 
   constructor(
     private location: Location,
@@ -21,5 +24,22 @@ export class RegistroMateriaScreenComponent implements OnInit {
 
   public regresar(){
     this.location.back();
+  }
+
+  public registrar(){}
+
+  public actualizar(){}
+
+  public esquemaMateria(){
+    return {
+      'nrc': '',
+      'nombre': '',
+      'seccion': '',
+      'dias': '',
+      'horaInicio': '',
+      'horaFin': '',
+      'salon': '',
+      'programaEducativo': '',
+    }
   }
 }
