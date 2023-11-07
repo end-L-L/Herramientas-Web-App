@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ValidatorService } from './tools/validator.service';
 import { ErrorsService } from './tools/errors.service';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +15,7 @@ import { ErrorsService } from './tools/errors.service';
 export class MateriasService {
 
   constructor(
+    private http: HttpClient,
     private validatorService: ValidatorService,
     private errorsService: ErrorsService
   ) { }
@@ -67,4 +75,12 @@ export class MateriasService {
 
     return error;
   }
+
+  // Servicios HTTP
+
+  // Registar Materia
+  public registrarMateria (data: any): Observable <any>{
+    return this.http.post<any>(`${environment.url_api}/materia/`,data, httpOptions);
+  }
+
 }

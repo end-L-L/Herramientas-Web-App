@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { MateriasService } from 'src/app/services/materias.service';
+import { Router } from '@angular/router';
 declare var $:any;
 
 @Component({
@@ -18,7 +19,8 @@ export class RegistroMateriaScreenComponent implements OnInit {
 
   constructor(
     private location: Location,
-    private materiasService: MateriasService
+    private materiasService: MateriasService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +32,7 @@ export class RegistroMateriaScreenComponent implements OnInit {
     this.location.back();
   }
 
-  public registrar(){
+  public registrarMateria(){
     //Validar
     this.errors = [];
 
@@ -40,6 +42,18 @@ export class RegistroMateriaScreenComponent implements OnInit {
       console.log("Materia: ", this.materia);
       return false;
     }
+
+    this.materiasService.registrarMateria(this.materia).subscribe({
+      next: (response) => {
+        alert("Materia Registrada Correctamente");
+        console.log("Materia Registrada: ", response);
+        this.router.navigate(["/home"]);
+      },
+      error: (error) => {
+        alert("No se Pudo Registrar Materia");
+      }
+    });
+
   }
 
   public actualizar(){}
