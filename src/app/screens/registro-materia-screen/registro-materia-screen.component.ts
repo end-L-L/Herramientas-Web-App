@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { MateriasService } from 'src/app/services/materias.service';
+declare var $:any;
 
 @Component({
   selector: 'app-registro-materia-screen',
@@ -16,30 +18,31 @@ export class RegistroMateriaScreenComponent implements OnInit {
 
   constructor(
     private location: Location,
+    private materiasService: MateriasService
   ) { }
 
   ngOnInit(): void {
-    
+    this.materia = this.materiasService.esquemaMateria();
+    //console.log("Materia: ", this.materia);
   }
 
   public regresar(){
     this.location.back();
   }
 
-  public registrar(){}
+  public registrar(){
+    //Validar
+    this.errors = [];
+
+    this.errors = this.materiasService.validarMateria(this.materia);
+    if(!$.isEmptyObject(this.errors)){
+      //Pasa la validación y sale de la función
+      console.log("Materia: ", this.materia);
+      return false;
+    }
+  }
 
   public actualizar(){}
 
-  public esquemaMateria(){
-    return {
-      'nrc': '',
-      'nombre': '',
-      'seccion': '',
-      'dias': '',
-      'horaInicio': '',
-      'horaFin': '',
-      'salon': '',
-      'programaEducativo': '',
-    }
-  }
+
 }

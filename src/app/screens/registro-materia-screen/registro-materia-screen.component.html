@@ -21,7 +21,7 @@
                 <mat-label>Nombre de Materia</mat-label>
                 <input matInput [(ngModel)]="materia.nombre" placeholder="Escribe el Nombre de Materia">
             </mat-form-field>
-            <div *ngIf="errors.materia" class="invalid-feedback">{{ errors.nombre }}</div>
+            <div *ngIf="errors.nombre" class="invalid-feedback">{{ errors.nombre }}</div>
 
             <mat-form-field class="mat-input" appearance="outline">
                 <mat-label>Sección</mat-label>
@@ -55,7 +55,7 @@
             
             <mat-form-field appearance="outline">
                 <mat-label>Programa Educativo</mat-label>
-                <mat-select [(ngModel)]="materia.programa" name="programa">
+                <mat-select [(ngModel)]="materia.programaEducativo">
                     <mat-option value="Ingeniería en Ciencias de la Computación">Ingeniería en Ciencias de la Computación</mat-option>
                     <mat-option value="Ingeniería en Tecnologías de la Información">Ingeniería en Tecnologías de la Información</mat-option>
                     <mat-option value="Licenciatura en Ciencias de la Computación">Licenciatura en Ciencias de la Computación</mat-option>
