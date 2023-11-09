@@ -34,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { EliminarUserModalComponent } from './modals/eliminar-user-modal/eliminar-user-modal.component';
 import { RegistroMateriaScreenComponent } from './screens/registro-materia-screen/registro-materia-screen.component';
+import { ListaMateriasScreenComponent } from './screens/lista-materias-screen/lista-materias-screen.component';
 //Options mask
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -46,7 +47,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     NuevoLoginScreenComponent,
     RegistroProductoScreenComponent,
     EliminarUserModalComponent,
-    RegistroMateriaScreenComponent
+    RegistroMateriaScreenComponent,
+    ListaMateriasScreenComponent
   ],
   imports: [
     BrowserModule,
