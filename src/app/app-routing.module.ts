@@ -17,8 +17,10 @@ const routes: Routes = [
   { path: 'registro-producto', component: RegistroProductoScreenComponent, pathMatch:'full' },
   { path: 'registro/:id', component: RegistroScreenComponent, pathMatch:'full' },
   { path: 'registro-materia', component: RegistroMateriaScreenComponent, pathMatch:'full' },
+  { path: 'registro-materia/:nrc', component: RegistroMateriaScreenComponent, pathMatch:'full' },
   { path: 'lista-materias', component: ListaMateriasScreenComponent, pathMatch:'full' },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

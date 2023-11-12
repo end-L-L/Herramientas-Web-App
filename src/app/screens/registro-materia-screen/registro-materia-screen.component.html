@@ -4,7 +4,7 @@
         <div class="header-registro">
             <mat-icon class="icon-back" (click)="regresar()">arrow_back</mat-icon>
             <span *ngIf="!editar" class="title">Registrar Materia</span>
-            <!-- <span *ngIf="editar" class="title">Actualizar Materia</span> -->
+            <span *ngIf="editar" class="title">Actualizar Materia</span>
             <mat-icon></mat-icon>
         </div>
 
@@ -55,18 +55,18 @@
             
             <mat-form-field appearance="outline">
                 <mat-label>Programa Educativo</mat-label>
-                <mat-select [(ngModel)]="materia.programaEducativo">
+                <mat-select [(ngModel)]="materia.programa">
                     <mat-option value="Ingeniería en Ciencias de la Computación">Ingeniería en Ciencias de la Computación</mat-option>
                     <mat-option value="Ingeniería en Tecnologías de la Información">Ingeniería en Tecnologías de la Información</mat-option>
                     <mat-option value="Licenciatura en Ciencias de la Computación">Licenciatura en Ciencias de la Computación</mat-option>
                 </mat-select>
             </mat-form-field>
-            <div *ngIf="errors.programaEducativo" class="invalid-feedback">{{ errors.programaEducativo }}</div>
+            <div *ngIf="errors.programa" class="invalid-feedback">{{ errors.programa }}</div>
             
             <div class="section-buttons">
                 <button class="btn btn-danger" (click)="regresar()">Cancelar</button>
                 <button *ngIf="!editar" class="btn btn-primary" type="submit" (click)="registrarMateria()">Registrar</button>
-                <button *ngIf="editar" class="btn btn-primary" type="submit" (click)="actualizar()">Actualizar</button>
+                <button *ngIf="editar" class="btn btn-primary" type="submit" (click)="actualizarMateria()">Actualizar</button>
             </div>
             
         </div>

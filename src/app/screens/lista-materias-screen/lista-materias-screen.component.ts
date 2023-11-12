@@ -96,7 +96,9 @@ export class ListaMateriasScreenComponent implements OnInit {
     this.router.navigate(['/registro-materia']);
   }
 
-  goEditarMateria(nrc:any){}
+  goEditarMateria(nrc:number){
+    this.router.navigate(['/registro-materia/'+nrc]);
+  }
 
   goEliminarMateria(nrc:any){}
 

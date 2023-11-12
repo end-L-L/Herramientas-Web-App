@@ -31,7 +31,7 @@ export class MateriasService {
       'horaInicio': '',
       'horaFin': '',
       'salon': '',
-      'programaEducativo': '',
+      'programa': '',
     }
   }
   
@@ -71,8 +71,8 @@ export class MateriasService {
       error["salon"] = this.errorsService.required;
     }
 
-    if(!this.validatorService.required(data["programaEducativo"])){
-      error["programaEducativo"] = this.errorsService.required;
+    if(!this.validatorService.required(data["programa"])){
+      error["programa"] = this.errorsService.required;
     }
 
     return error;
@@ -90,5 +90,17 @@ export class MateriasService {
     var token = this.facadeService.getSessionToken();
     var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
     return this.http.get<any>(`${environment.url_api}/lista-materias/`, {headers:headers});
-  }  
+  }
+
+  // Obtener Materia por NRC
+  public getMateriaByNRC (nrc: Number): Observable <any>{
+    return this.http.get<any>(`${environment.url_api}/materia/?nrc=${nrc}`, httpOptions);
+  }
+
+  // Actualizar Materia
+  public editarMateria (data: any): Observable <any>{
+    var token = this.facadeService.getSessionToken();
+    var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
+    return this.http.put<any>(`${environment.url_api}/materia-edit/`, data, {headers:headers});
+  }
 }
