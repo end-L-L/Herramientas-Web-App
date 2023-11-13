@@ -103,4 +103,11 @@ export class MateriasService {
     var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
     return this.http.put<any>(`${environment.url_api}/materia-edit/`, data, {headers:headers});
   }
+
+  // Eliminar Materia
+  public eliminarMateria(nrc: number): Observable <any>{
+    var token = this.facadeService.getSessionToken();
+    var headers = new HttpHeaders({ 'Content-Type': 'application/json' , 'Authorization': 'Bearer '+token});
+    return this.http.delete<any>(`${environment.url_api}/materia-edit/?nrc=${nrc}`,{headers:headers});
+  }
 }
