@@ -4,9 +4,9 @@
             
             <!-- header -->
             <div class="header-home">
-                <button class="logout-hide" mat-flat-button>Cerrar sesión</button>
+                <button class="logout-hide" mat-flat-button>cerrar sesión</button>
                 <!-- <mat-icon class="icon-back" (click)="logout()">arrow_back</mat-icon> -->
-                <span class="title">Lista de usuarios</span>
+                <span class="title">Lista de Usuarios</span>
                 <button class="logout" mat-flat-button color="warn" (click)="logout()">Cerrar sesión</button>
             </div>
 
@@ -84,6 +84,11 @@
                                    showFirstLastButtons
                                    aria-label="Select page of periodic elements">
                     </mat-paginator>
+                </div>
+
+                <div class="section-buttons">
+                    <button class="btn btn-primary" type="submit" (click)="goListaMaterias()">Lista de Materias</button>
+                    <button class="btn btn-secondary" type="submit" (click)="goRegistrarMateria()">Registrar Materia</button>
                 </div>
                 <!-- <br><br>
                 <h1>Ejemplo de tabla en Bootstrap</h1> 

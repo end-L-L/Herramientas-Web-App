@@ -142,6 +142,13 @@ export class HomeScreenComponent implements OnInit{
       });
     }
 
+  public goListaMaterias(){
+    this.router.navigate(["lista-materias"]);
+  }
+  
+  public goRegistrarMateria(){
+    this.router.navigate(["registro-materia"]);
+  }
 } //Fin
 
 // Inicio

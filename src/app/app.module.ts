@@ -26,10 +26,16 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+
 
 //Mask
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { EliminarUserModalComponent } from './modals/eliminar-user-modal/eliminar-user-modal.component';
+import { RegistroMateriaScreenComponent } from './screens/registro-materia-screen/registro-materia-screen.component';
+import { ListaMateriasScreenComponent } from './screens/lista-materias-screen/lista-materias-screen.component';
+import { EliminarMateriaModalComponent } from './modals/eliminar-materia-modal/eliminar-materia-modal.component';
 //Options mask
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -41,7 +47,10 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     HomeScreenComponent,
     NuevoLoginScreenComponent,
     RegistroProductoScreenComponent,
-    EliminarUserModalComponent
+    EliminarUserModalComponent,
+    RegistroMateriaScreenComponent,
+    ListaMateriasScreenComponent,
+    EliminarMateriaModalComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +66,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'es-ES'}
